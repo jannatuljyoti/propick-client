@@ -10,9 +10,9 @@ const mainLayout = () => {
                 <Navbar></Navbar>
             </header>
 
-      <main className='md:container mx-auto'><Outlet></Outlet></main>
+      <main className='min-h-screen mx-auto'><Outlet></Outlet></main>
 
-            <footer  className='md:container mx-auto'>
+            <footer  className='md:container mx-auto '>
                 <Footer></Footer>
             </footer>
         </div>
