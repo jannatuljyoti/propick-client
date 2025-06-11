@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { auth } from '../firebase/firebase.init';
+import React, { createContext, useEffect, useState } from 'react';
+
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import app from '../firebase/firebase.init';
+
+
+export const AuthContext=createContext();
+const auth=getAuth(app);
+
 
 const AuthProvider = ({children}) => {
 
@@ -13,15 +18,26 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth,email, password)
     }
 
-    const signInUser=(email,password)=>{
+    const signIn=(email,password)=>{
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const signOutUser=()=>{
+    const updateUser=(updatedData)=>{
+        return updateProfile(auth.currentUser,updatedData);
+    };
+
+    const googleProvider=new GoogleAuthProvider();
+    const googleLogin=()=>{
+        return signInWithPopup(auth,googleProvider);
+    }
+
+    const logOut=()=>{
         setLoading(true);
         return signOut(auth)
     }
+
+    
 
     useEffect(()=>{
         const unSubscribe= onAuthStateChanged(auth,currentUser=>{
@@ -34,19 +50,23 @@ const AuthProvider = ({children}) => {
         }
     },[])
 
-    const authInfo={
+    const authData={
         createUser,
-        loading,
-        signInUser,
         user,
-        signOutUser
+        setUser,
+        loading,
+        setLoading,
+        signIn,
+        logOut,
+        updateUser,
+        googleLogin
+
     }
 
-    return (
-        <AuthContext value={authInfo}>
+    return <AuthContext.Provider value={authData}>
             {children}
-        </AuthContext>
-    );
+        </AuthContext.Provider>
+   
 };
 
 export default AuthProvider;
