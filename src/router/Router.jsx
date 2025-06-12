@@ -13,6 +13,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PageError from "../pages/PageError";
+import AddQuery from "../pages/AddQuery";
 
 const Router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const Router = createBrowserRouter([
         {
             path:"my-queries",
           element:<PrivateRoute><MyQueries></MyQueries></PrivateRoute>
+        },
+        {
+            path:"add-query",
+          element:<PrivateRoute><AddQuery></AddQuery></PrivateRoute>
         },
         {
             path:"my-recommendations",

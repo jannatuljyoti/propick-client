@@ -44,6 +44,9 @@ const AuthProvider = ({children}) => {
             setUser(currentUser);
             setLoading(false);
 
+        },(error)=>{
+            console.error("Auth state error:", error);
+            setLoading(false);
         })
         return()=>{
             unSubscribe();
