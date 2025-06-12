@@ -1,11 +1,9 @@
-import React, { use } from 'react';
+import React, {  use } from 'react';
 import useDynamicTitle from '../hooks/dynamicTitle';
-
 import { Link, useLocation, useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../context/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
      useDynamicTitle("Login")
@@ -27,10 +25,13 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.success("Login Successfully");
-      navigate(`${location.state?location.state : "/"}`);
+ 
+    setTimeout(()=>{
+      navigate(location.state || "/");
+    },2000)
     })
     .catch((error)=>{
-      toast.error("Wrong Password");
+      toast.error(error?.message || "Something went wrong");
     });
   };
 
@@ -40,6 +41,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.success("Google Signed in successful!")
+        
     })
     .catch((error)=>{
       toast.error(error.message);
@@ -71,7 +73,7 @@ const Login = () => {
           <p className='font-semibold text-center mt-4'>Don't Have An Account? <Link to="/auth/register" className='text-[#4bbafa]'>Register</Link></p>
         </fieldset>
       </form>
-      <ToastContainer></ToastContainer>
+<ToastContainer position='top-center' autoClose={2000}/>
 
      
 

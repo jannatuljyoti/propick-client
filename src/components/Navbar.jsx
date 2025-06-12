@@ -94,8 +94,7 @@ const handleLogOut=()=>{
                onClick={toggleLogout}
                title={user.displayName || "User"}
                />
-               <span className='hidden md:inline text-sm font-medium'>{user.displayName}</span>
-
+               
                {showLogout && (
                 <button onClick={handleLogOut}  className="absolute top-full mt-2 right-0 bg-[#4bbafa] text-white px-4 py-1 rounded shadow z-50">Logout</button>
                )}

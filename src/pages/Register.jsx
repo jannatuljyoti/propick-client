@@ -2,11 +2,12 @@ import React, { use, useState } from 'react';
 import useDynamicTitle from '../hooks/dynamicTitle';
 
 import { Link, useNavigate } from 'react-router';
-import { toast, ToastContainer } from 'react-toastify';
+
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { updateProfile } from 'firebase/auth';
 import { AuthContext } from '../context/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
       useDynamicTitle("Register")
@@ -44,7 +45,9 @@ const Register = () => {
         .then(()=>{
           setUser({...user,displayName:name, photoURL:photo});
         toast.success("Registered successfully");
-        navigate("/");
+    setTimeout(()=>{
+      navigate(location.state || "/");
+    },2000)
         })
     })
     .catch((error)=>{
@@ -95,7 +98,7 @@ const Register = () => {
         </fieldset>
       </form>
 
-      <ToastContainer></ToastContainer>
+      <ToastContainer position='top-center' />
 
      <div className='flex justify-center items-center'>
      <button onClick={handleGoogleLogin} className='flex items-center gap-2  bg-[#141414] text-white px-18 py-2'>Sign up with  <FcGoogle />Google</button>
