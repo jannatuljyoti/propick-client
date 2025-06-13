@@ -63,7 +63,7 @@ const AddQuery = () => {
 
         <input type="text" name="productBrand" placeholder='productBrand' onChange={handleChange} required className='input input-bordered w-full'/>
 
-        <input type="text" name="productImage" placeholder='productImage' onChange={handleChange} required className='input input-bordered w-full'/>
+        <input type="url" name="productImage" placeholder='productImage' onChange={handleChange} required className='input input-bordered w-full'/>
 
         <input type="text" name="queryTitle" placeholder='queryTitle' onChange={handleChange} required className='input input-bordered w-full'/>
 

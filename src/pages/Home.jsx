@@ -9,7 +9,7 @@ const Home = () => {
                 <SwiperSlider></SwiperSlider>
             </section>
 
-            <section>
+            <section className='mt-10'>
                 <RecentQueries></RecentQueries>
             </section>
         </div>
