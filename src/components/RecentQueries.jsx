@@ -27,7 +27,7 @@ const RecentQueries = () => {
                     recent.map((query, index)=>(
                         <div key={index} className='card shadow-xl p-4 bg-white rounded-xl border border-gray-200'>
 
-                            <img src={query.productImage} alt={query.productName} className='w-full h-40 object-cover rounded'/>
+                            <img src={query.productImage} alt={query.productName} className='w-full h-full object-cover rounded'/>
 
                             <div className='mt-4 space-y-2'>
 
