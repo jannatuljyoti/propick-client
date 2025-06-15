@@ -21,8 +21,8 @@ const TopContributors = () => {
     if(loading) return <Loading></Loading>
 
     return (
-        <div className='py-10 bg-gray-100'>
-            <h2 className='text-3xl font-bold text-center mb-5'>Top Contributors</h2>
+        <div className='py-10 bg-blue-100'>
+            <h2 className='text-3xl font-bold text-center text-[#4bbafa] mb-5'>Top Contributors</h2>
 
             <div className='grid md:grid-cols-3 gap-5 px-4'>
                 {

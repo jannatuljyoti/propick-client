@@ -93,7 +93,7 @@ const QueryDetails = () => {
 
           </div>
 
-          <div className='bg-sky-100 shadow-md rounded-lg p-5 mb-7'>
+          <div className='bg-blue-100 shadow-md rounded-lg p-5 mb-7'>
             <h3 className='text-xl font-semibold mb-5'>Add a Recommendation</h3>
 
             <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-5'>
@@ -112,7 +112,7 @@ const QueryDetails = () => {
           </div>
 
 
-          <div>
+          <div className='bg-blue-100 p-4 rounded'>
             <h3 className='text-xl font-semibold mb-5'>All Recommendations</h3>
 
             <div className='grid gap-5 sm:grid-cols-2'>

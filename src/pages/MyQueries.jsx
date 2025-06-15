@@ -65,7 +65,7 @@ const MyQueries = () => {
             <h2 className='text-3xl  font-bold'>Your Queries</h2>
 
             <button onClick={()=> navigate('/add-query')}
-                className='mt-4 px-7 py-3 bg-blue-600 text-white rounded hover:bg-blue-700'>Add New Query</button>
+                className='mt-4 px-7 py-3 bg-[#4bbafa] text-white rounded hover:bg-blue-700'>Add New Query</button>
 
         </div>
 
@@ -96,9 +96,9 @@ const MyQueries = () => {
 
                         <div className='flex mt-5 justify-between gap-3'>
 
-                            <button onClick={()=>navigate(`/query-details/${queries._id}`)} className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-yellow-600'>View</button>
+                            <button onClick={()=>navigate(`/query-details/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>View</button>
 
-                            <button onClick={()=>navigate(`/update-query/${queries._id}`)} className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-yellow-600'>Update</button>
+                            <button onClick={()=>navigate(`/update-query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>Update</button>
 
                             <button onClick={()=>handleDelete(queries._id)} className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600'>Delete</button>
                         </div>

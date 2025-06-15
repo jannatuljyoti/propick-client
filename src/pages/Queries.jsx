@@ -37,7 +37,7 @@ const Queries = () => {
 
     return (
         <div className='px-5 py-11 bg-gray-100 min-h-screen'>
-            <h1 className='text-3xl font-bold mb-5 text-center'>All Queries</h1>
+            <h1 className='text-3xl font-bold mb-5 text-center text-[#4bbafa]'>All Queries</h1>
          
          {queries.length===0?(
             <div className='text-center text-lg'>No Queries found</div>
