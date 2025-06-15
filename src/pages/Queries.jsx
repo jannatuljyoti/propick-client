@@ -20,6 +20,19 @@ const Queries = () => {
         })
     },[]);
 
+    // const handleRecommendations= async(id) =>{
+    //     try{
+    //         const res = await axios.patch(`http://localhost:3000/recommend/${id}`)
+    //         if(res.data.success){
+    //              setQueries(prev=>
+    //                 prev.map(query=>query._id===id?{...query, recommendationCount:query.recommendationCount + 1}: query)
+    //              );
+    //         }
+    //     }catch(error){
+    //         console.error("Error recommendation:",error)
+    //     }
+    // }
+
     if (loading) return <Loading></Loading>
 
     return (

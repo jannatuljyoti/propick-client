@@ -14,6 +14,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PageError from "../pages/PageError";
 import AddQuery from "../pages/AddQuery";
+import QueryDetails from "../pages/QueryDetails";
 
 const Router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
         {
             path:"my-recommendations",
            element:<PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+        },
+        {
+            path:"query/:id",
+           element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>
         },
     ],
   },
