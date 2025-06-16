@@ -36,16 +36,19 @@ const MyRecommendations = () => {
     };
 
     return (
-        <div className='p-7 bg-gray-100 min-h-screen'>
+        <div className='p-7 bg-blue-50 min-h-screen'>
             <h2 className='bg-base-100 p-3 rounded text-2xl text-center text-[#4bbafa] font-bold mb-5'>My Recommendations</h2>
             <div className='overflow-x-auto bg-base-100 shadow-md'>
                 <table className='table-fixed w-full  border border-collapse border-sky-400 '>
                     <thead className='bg-base-100 '>
                         <tr>
-                            <th className='w-1/4 p-3 border border-sky-400  text-left'>Title</th>
-                            <th className='w-1/4 p-3 border border-sky-400 text-left'>Product Name</th>
-                            <th className='w-1/4 p-3 border border-sky-400 text-left'>Reason</th>
-                            <th className='w-1/4 p-3 border border-sky-400  text-left'>Action</th>
+                            <th className='w-1/4 p-3 border border-sky-400 text-[#4bbafa] text-left'>Title</th>
+
+                            <th className='w-1/4 p-3 border text-[#4bbafa] border-sky-400 text-left'>Product Name</th>
+
+                            <th className='w-1/4 p-3 border border-sky-400 text-[#4bbafa] text-left'>Reason</th>
+
+                            <th className='w-1/4 p-3 border border-sky-400 text-[#4bbafa] text-left'>Action</th>
                         </tr>
 
                     </thead>

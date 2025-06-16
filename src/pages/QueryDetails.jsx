@@ -115,13 +115,13 @@ const QueryDetails = () => {
 
             <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-5'>
 
-              <input className='border p-3 rounded' placeholder='Title' value={formData.title} onChange={e=> setFormdata({...formData,title: e.target.value})}/>
+              <input className='border border-blue-500 p-3 rounded' placeholder='Title' value={formData.title} onChange={e=> setFormdata({...formData,title: e.target.value})}/>
 
-              <input className='border p-3 rounded' placeholder='Product Name' value={formData.productName} onChange={e=> setFormdata({...formData, productName: e.target.value})}/>
+              <input className='border border-blue-500 p-3 rounded' placeholder='Product Name' value={formData.productName} onChange={e=> setFormdata({...formData, productName: e.target.value})}/>
 
-              <input className='border p-3 rounded md:col-span-2' placeholder='Photo URL' value={formData.productImage} onChange={e=> setFormdata({...formData, productImage: e.target.value})}/>
+              <input className='border border-blue-500 p-3 rounded md:col-span-2' placeholder='Photo URL' value={formData.productImage} onChange={e=> setFormdata({...formData, productImage: e.target.value})}/>
 
-              <textarea className='border p-3 md:col-span-2' placeholder='Reason' value={formData.reason} onChange={e=> setFormdata({...formData, reason:e.target.value})}></textarea>
+              <textarea className='border border-blue-500 p-3 md:col-span-2' placeholder='Reason' value={formData.reason} onChange={e=> setFormdata({...formData, reason:e.target.value})}></textarea>
 
               <button type='submit' className='bg-[#4bbafa] text-white py-3 px-5 rounded hover:bg-blue-700 md:col-span-2'>Add Recommendation</button>
             </form>

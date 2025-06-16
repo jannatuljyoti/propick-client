@@ -6,12 +6,15 @@ import { Link } from 'react-router';
 const Queries = () => {
 
     const[queries,setQueries]=useState([]);
+    const [filterQueries,setFilterQueries]=useState([]);
     const [loading,setLoading]=useState(true);
+    const[search,setSearch]=useState('');
 
     useEffect(()=>{
         axios.get('http://localhost:3000/all-queries')
         .then(res=>{
             setQueries(res.data);
+            setFilterQueries(res.data);
             setLoading(false);
         })
         .catch(err=>{
@@ -20,32 +23,38 @@ const Queries = () => {
         })
     },[]);
 
-    // const handleRecommendations= async(id) =>{
-    //     try{
-    //         const res = await axios.patch(`http://localhost:3000/recommend/${id}`)
-    //         if(res.data.success){
-    //              setQueries(prev=>
-    //                 prev.map(query=>query._id===id?{...query, recommendationCount:query.recommendationCount + 1}: query)
-    //              );
-    //         }
-    //     }catch(error){
-    //         console.error("Error recommendation:",error)
-    //     }
-    // }
+    const handleSearch=(e)=>{
+        const text = e.target.value.toLowerCase();
+        setSearch(text);
+        const matched = queries.filter(query=>
+            query.productName.toLowerCase().includes(text)
+        );
+        setFilterQueries(matched);
+    }
 
     if (loading) return <Loading></Loading>
 
     return (
         <div className='px-5 py-11 bg-gray-100 min-h-screen'>
             <h1 className='text-3xl font-bold mb-5 text-center text-[#4bbafa]'>All Queries</h1>
+
+            {/* search input */}
+            <div className='max-w-md mx-auto mb-5'>
+                <input type="text"
+                value={search} 
+                onChange={handleSearch}
+                placeholder='Search by Product Name...'
+                className='input input-bordered w-full'
+                />
+            </div>
          
-         {queries.length===0?(
+         {filterQueries.length===0?(
             <div className='text-center text-lg'>No Queries found</div>
          ):(
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
 
                 {
-                    queries.map(query=>(
+                    filterQueries.map(query=>(
                         <div key={query._id} className='bg-white rounded-xl shadow flex flex-col  h-[500px] p-6'>
 
                        <div className='flex-1'>

@@ -31,9 +31,9 @@ const RecommendationsForMe = () => {
     if(loading) return <Loading></Loading>
 
     return (
-        <div className='p-7 min-h-screen bg-gray-100'>
+        <div className='p-7 min-h-screen bg-blue-50'>
 
-            <h2 className='text-2xl text-center text-[#4bbafa] font-bold mb-5'>Recommendation for me</h2>
+            <h2 className='text-2xl text-center rounded p-5 bg-base-100 text-[#4bbafa] font-bold mb-5'>Recommendation for me</h2>
 
             {
                 recommendations.length===0?(
@@ -46,13 +46,13 @@ const RecommendationsForMe = () => {
                             <thead className='bg-base-100 border-blue-300 text-left'>
 
                                 <tr>
-                                    <th className='px-4 py-3 border border-blue-300'>Product Name</th>
+                                    <th className='px-4 text-blue-400 py-3 border border-blue-300'>Product Name</th>
 
-                                    <th className='px-4 py-3 border border-blue-300'>Product Image</th>
+                                    <th className='px-4 py-3 text-blue-400  border border-blue-300'>Product Image</th>
 
-                                    <th className='px-4 py-3 border border-blue-300'>Reason</th>
+                                    <th className='px-4 text-blue-400  py-3 border border-blue-300'>Reason</th>
 
-                                    <th className='px-4 py-3 border border-blue-300'>Recommended By</th>
+                                    <th className='px-4 text-blue-400  py-3 border border-blue-300'>Recommended By</th>
                                 </tr>
 
                             </thead>
