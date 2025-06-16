@@ -9,6 +9,8 @@ const Queries = () => {
     const [filterQueries,setFilterQueries]=useState([]);
     const [loading,setLoading]=useState(true);
     const[search,setSearch]=useState('');
+    const [gridCol,setGridCol]=useState(3);
+
 
     useEffect(()=>{
         axios.get('http://localhost:3000/all-queries')
@@ -47,11 +49,34 @@ const Queries = () => {
                 className='input input-bordered w-full'
                 />
             </div>
+
+
+            {/* Layout Toggle Buttons */}
+            <div className='flex justify-center  gap-3 mb-6'>
+                <button 
+                onClick={()=> setGridCol(1)}
+                className={`btn bg-base-100 shadow btn-sm ${gridCol == 1? 'bg-blue-500 text-white' :  ''}`}>1 Col</button>
+
+                <button 
+                onClick={()=> setGridCol(2)}
+                className={`btn bg-base-100 shadow btn-sm ${gridCol == 2? 'bg-blue-500 text-white' :  ''}`}>2 Col</button>
+
+                <button 
+                onClick={()=> setGridCol(3)}
+                className={`btn bg-base-100 shadow btn-sm ${gridCol == 3? 'bg-blue-500 text-white' :  ''}`}>3 Col</button>
+
+            </div>
          
+
+         {/* Queries Grid */}
          {filterQueries.length===0?(
             <div className='text-center text-lg'>No Queries found</div>
          ):(
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className={`grid gap-5 ${
+                gridCol === 1? 'grid-cols-1' :
+                gridCol === 2? 'sm:grid-cols-2' :
+                'sm:grid-cols-2 lg:grid-cols-3'
+            }`}>
 
                 {
                     filterQueries.map(query=>(
