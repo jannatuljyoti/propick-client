@@ -39,7 +39,7 @@ const handleLogOut=()=>{
       
       {user &&(
         <>
-        <li><NavLink to="/recommendations-forMe/:email">Recommendations For Me</NavLink></li>
+        <li><NavLink to="/recommendations-forMe">Recommendations For Me</NavLink></li>
         <li><NavLink to="/my-queries">My Queries</NavLink></li>
         <li><NavLink to="/my-recommendations">My Recommendations</NavLink></li>
         

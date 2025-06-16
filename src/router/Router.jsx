@@ -24,14 +24,14 @@ const Router = createBrowserRouter([
     children:[
         {
             path:"",
-            Component:Home
+            element:<Home></Home>
         },
         {
             path:"queries",
-            Component:Queries
+           element:<Queries></Queries>
         },
         {
-            path:"recommendations-forMe/:email",
+            path:"recommendations-forMe",
             element:<PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
         },
         {

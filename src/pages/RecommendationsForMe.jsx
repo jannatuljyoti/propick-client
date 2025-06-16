@@ -15,7 +15,7 @@ const RecommendationsForMe = () => {
 
     useEffect(()=>{
         if(user?.email){
-            axios.get(`http://localhost:3000/recommendations-forMe/${user.email}`)
+            axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`)
             .then(res=>{
                 setRecommendations(res.data);
                 setLoading(false);
@@ -31,28 +31,28 @@ const RecommendationsForMe = () => {
     if(loading) return <Loading></Loading>
 
     return (
-        <div className='p-5'>
+        <div className='p-7 min-h-screen bg-gray-100'>
 
-            <h2 className='text-2xl font-bold mb-5'>Recommendation for me</h2>
+            <h2 className='text-2xl text-center text-[#4bbafa] font-bold mb-5'>Recommendation for me</h2>
 
             {
                 recommendations.length===0?(
                     <p>No recommendations yet</p>
                 ):(
-                    <div className='overflow-x-auto'>
+                    <div className='overflow-x-auto bg-base-100 shadow-lg'>
                         <table className='min-w-full table-auto
-                        border'>
+                        border border-blue-300'>
 
-                            <thead className='bg-gray-100 text-left'>
+                            <thead className='bg-base-100 border-blue-300 text-left'>
 
                                 <tr>
-                                    <th className='px-4 py-3 border'>Product Name</th>
+                                    <th className='px-4 py-3 border border-blue-300'>Product Name</th>
 
-                                    <th className='px-4 py-3 border'>Product Image</th>
+                                    <th className='px-4 py-3 border border-blue-300'>Product Image</th>
 
-                                    <th className='px-4 py-3 border'>Reason</th>
+                                    <th className='px-4 py-3 border border-blue-300'>Reason</th>
 
-                                    <th className='px-4 py-3 border'>Recommended By</th>
+                                    <th className='px-4 py-3 border border-blue-300'>Recommended By</th>
                                 </tr>
 
                             </thead>
@@ -61,15 +61,15 @@ const RecommendationsForMe = () => {
                                 {
                                     recommendations.map((re,index)=>(
                                         <tr key={index} className='hover:bg-gray-50'>
-                                            <td className='px-4 py-3 border'>{re.productName}</td>
+                                            <td className='px-4 py-3 border border-blue-300'>{re.productName}</td>
 
-                                            <td className='px-4 py-3 border'>
+                                            <td className='px-4 py-3 border border-blue-300'>
                                                 <img src={re.productImage} alt={re.productName} className='w-16 h-16 rounded-md object-cover'/>
                                             </td>
 
-                                            <td className='px-4 py-3 border'>{re.reason}</td>
+                                            <td className='px-4 py-3 border border-blue-300'>{re.reason}</td>
 
-                                            <td className='px-4 py-3 border'>{re.userEmail}</td>
+                                            <td className='px-4 py-3 border border-blue-300'>{re.recommenderName}</td>
 
                                         </tr>
                                     ))
