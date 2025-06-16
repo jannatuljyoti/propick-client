@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../firebase/firebase.init";
 import useDynamicTitle from '../hooks/dynamicTitle';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loading from './Loading';
+import bannerImg from '../assets/banner.jpg'
 
 const MyQueries = () => {
     const [user,loading]=useAuthState(auth);
     const [query,setQuery]=useState([]);
     const[fetching, setFetching]=useState(true);
+    const location = useLocation();
     const navigate= useNavigate();
 
     useDynamicTitle("My Queries");
@@ -29,7 +31,7 @@ const MyQueries = () => {
 
         });
 
-    },[user]);
+    },[user, location.state?.refreshed]);
 
     const handleDelete=id=>{
         const confirmDelete=window.confirm('Are you sure you want to delete this query?');
@@ -61,8 +63,10 @@ const MyQueries = () => {
         {/* <Link to="/add-query" className="btn btn-accent">Add New Query</Link> */}
 
         {/* Banner Section */}
-        <div className='bg-blue-100 p-5 rounded-lg text-center mb-7'>
-            <h2 className='text-3xl  font-bold'>Your Queries</h2>
+        <div className='bg-gray-100 shadow-md p-5 rounded-lg text-center mb-7'>
+            <h2 className='text-3xl text-[#4bbafa]  mb-7 font-bold'>My Queries</h2>
+
+            <img className='mb-7 w-full rounded-lg p-4' src={bannerImg} alt="banner" />
 
             <button onClick={()=> navigate('/add-query')}
                 className='mt-4 px-7 py-3 bg-[#4bbafa] text-white rounded hover:bg-blue-700'>Add New Query</button>
@@ -96,7 +100,7 @@ const MyQueries = () => {
 
                         <div className='flex mt-5 justify-between gap-3'>
 
-                            <button onClick={()=>navigate(`/query-details/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>View</button>
+                            <button onClick={()=>navigate(`/query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>View</button>
 
                             <button onClick={()=>navigate(`/update-query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>Update</button>
 

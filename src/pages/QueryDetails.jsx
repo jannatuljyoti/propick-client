@@ -4,10 +4,13 @@ import { useParams } from 'react-router';
 import Loading from './Loading';
 import useDynamicTitle from '../hooks/dynamicTitle';
 import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase/firebase.init';
 
 const QueryDetails = () => {
   useDynamicTitle('Query-Details')
 
+  const [currentUser]=useAuthState(auth);
   const {id}=useParams();
   const [query,setQuery]=useState(null);
   const [recommendations,setRecommendations]=useState([]);
@@ -21,8 +24,11 @@ const QueryDetails = () => {
   });
 
   const user={
-    email:"recommender@gmail.com",
-    name:"Recommender Name"
+    
+    email:currentUser?.email,
+    name:currentUser?.displayName || "Anonymous",
+    
+    photoURL:currentUser?.photoURL || ''
   };
 
   useEffect(()=>{
@@ -37,6 +43,14 @@ const QueryDetails = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault();
  
+    console.log('user:', user);
+  console.log('query:', query);
+  console.log('formData:', formData);
+
+  if(!query || !user.email){
+    toast.error("User or Query data missing.");
+    return;
+  }
 
     const recommendation={
       ...formData,
@@ -45,19 +59,20 @@ const QueryDetails = () => {
       productName:query.productName,
       userEmail:query.userEmail,
       userName:query.userName,
+      userImage:user.photoURL,
       recommenderEmail:user.email,
-      recommenderName:user.name,
-      timestamp: new Date().toISOString()
+      recommenderName:user?.name,
+     
     };
 
     try{
       await axios.post('http://localhost:3000/add-recommendation',recommendation);
 
-      setRecommendations(prev=>[...prev,recommendation]);
+      // setRecommendations(prev=>[...prev,recommendation]);
 
     await axios.patch(`http://localhost:3000/query-recommendation-count/${id}`);
 
-    await new Promise(resolve=>setTimeout(resolve,500));
+    // await new Promise(resolve=>setTimeout(resolve,500));
 
     
     const updated= await axios.get(`http://localhost:3000/recommendations?queryId=${id}`);
@@ -69,14 +84,15 @@ const QueryDetails = () => {
       
     setFormdata({title:'', productName:'', productImage:'', reason:''});
 
+    toast.success('Recommendation added')
 
     }catch(error){
       console.error("Error submitting:",error);
-      toast.success("Something wend wrong");
+      toast.error("Something wend wrong");
     }
   };
 
-  if(!query) return <p><Loading></Loading></p>
+  if(!query) return <div><Loading></Loading></div>
     
 
     return (
@@ -86,6 +102,7 @@ const QueryDetails = () => {
 
             <h2 className='text-2xl font-bold mb-5'>{query.queryTitle}</h2>
             <p className='mb-3'><strong>Brand: </strong>{query.productBrand}</p>
+            <p className='mb-3'><strong>Description: </strong>{query.queryDescription}</p>
 
             <p className='mb-3'><strong>Reason</strong> {query.reasonDetails}</p>
 
@@ -124,8 +141,11 @@ const QueryDetails = () => {
 
                     <h3 className='text-lg font-bold mb-3'>{re.productName}</h3>
 
+                    <img src={re.userImage} alt='user' className='w-10 h-10 rounded-full' />
+
                     <p className='mb-3'>{re.reason}</p>
-                    <p className='text-sm text-gray-600'><strong>By: </strong>{re.userName}</p>
+                    <p className='text-sm text-gray-600'><strong>By: </strong>{re.recommenderName}</p>
+                    <p className='text-sm text-gray-600'><strong>Email: </strong>{re.recommenderEmail}</p>
 
                     <p className='text-sm text-gray-600'><strong>Date: </strong>{new Date(re.timestamp).toLocaleString()}</p>
 

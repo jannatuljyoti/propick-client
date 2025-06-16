@@ -36,16 +36,16 @@ const MyRecommendations = () => {
     };
 
     return (
-        <div className='p-7'>
-            <h2 className='bg-sky-100 p-3 rounded text-2xl text-center text-[#4bbafa] font-bold mb-5'>My Recommendations</h2>
-            <div className='overflow-x-auto bg-sky-100 shadow-md'>
-                <table className='table-fixed w-full  border border-collapse  border-purple-400 '>
-                    <thead className='bg-sky-100 '>
+        <div className='p-7 bg-gray-100 min-h-screen'>
+            <h2 className='bg-base-100 p-3 rounded text-2xl text-center text-[#4bbafa] font-bold mb-5'>My Recommendations</h2>
+            <div className='overflow-x-auto bg-base-100 shadow-md'>
+                <table className='table-fixed w-full  border border-collapse border-sky-400 '>
+                    <thead className='bg-base-100 '>
                         <tr>
-                            <th className='w-1/4 p-3 border border-sky-400 [#4bbafa] text-left'>Title</th>
-                            <th className='w-1/4 p-3 border border-sky-400 [#4bbafa] text-left'>Product Name</th>
-                            <th className='w-1/4 p-3 border border-sky-400 [#4bbafa] text-left'>Reason</th>
-                            <th className='w-1/4 p-3 border border-sky-400 [#4bbafa] text-left'>Action</th>
+                            <th className='w-1/4 p-3 border border-sky-400  text-left'>Title</th>
+                            <th className='w-1/4 p-3 border border-sky-400 text-left'>Product Name</th>
+                            <th className='w-1/4 p-3 border border-sky-400 text-left'>Reason</th>
+                            <th className='w-1/4 p-3 border border-sky-400  text-left'>Action</th>
                         </tr>
 
                     </thead>
@@ -59,7 +59,7 @@ const MyRecommendations = () => {
                                     <td className='w-1/4 p-3 border border-sky-400 align-top'>{re.productName}</td>
                                     <td className='w-1/4 p-3 border border-sky-400 align-top break-words'>{re.reason}</td>
                                     <td className='w-1/4 p-3 border border-sky-400 align-top'>
-                                        <button onClick={()=>handleDelete(re._id)} className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>Delete</button>
+                                        <button onClick={()=>handleDelete(re._id)} className='bg-blue-400 text-white px-4 py-2 rounded hover:bg-red-600'>Delete</button>
                                     </td>
 
                                 </tr>

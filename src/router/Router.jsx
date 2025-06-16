@@ -15,6 +15,7 @@ import Register from "../pages/Register";
 import PageError from "../pages/PageError";
 import AddQuery from "../pages/AddQuery";
 import QueryDetails from "../pages/QueryDetails";
+import Update from "../pages/Update";
 
 const Router = createBrowserRouter([
   {
@@ -30,8 +31,12 @@ const Router = createBrowserRouter([
             Component:Queries
         },
         {
-            path:"recommendations",
+            path:"recommendations-forMe/:email",
             element:<PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
+        },
+        {
+            path:"update-query/:id",
+            element:<PrivateRoute><Update></Update></PrivateRoute>
         },
         {
             path:"my-queries",

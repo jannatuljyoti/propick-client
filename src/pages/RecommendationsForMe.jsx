@@ -1,9 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useDynamicTitle from '../hooks/dynamicTitle';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase/firebase.init';
+import axios from 'axios';
+import Loading from './Loading';
 
 const RecommendationsForMe = () => {
+    useDynamicTitle("RecommendationForMe")
+
+    const [user]= useAuthState(auth);
+    const [recommendations,setRecommendations]=useState([]);
+    const [loading, setLoading]=useState(true);
+
+
+    useEffect(()=>{
+        if(user?.email){
+            axios.get(`http://localhost:3000/recommendations-forMe/${user.email}`)
+            .then(res=>{
+                setRecommendations(res.data);
+                setLoading(false);
+            })
+            .catch(err=>{
+                console.error(err);
+                setLoading(false);
+
+            });
+        }
+    },[user]);
+
+    if(loading) return <Loading></Loading>
+
     return (
-        <div>
-            RecommendationsForMe
+        <div className='p-5'>
+
+            <h2 className='text-2xl font-bold mb-5'>Recommendation for me</h2>
+
+            {
+                recommendations.length===0?(
+                    <p>No recommendations yet</p>
+                ):(
+                    <div className='overflow-x-auto'>
+                        <table className='min-w-full table-auto
+                        border'>
+
+                            <thead className='bg-gray-100 text-left'>
+
+                                <tr>
+                                    <th className='px-4 py-3 border'>Product Name</th>
+
+                                    <th className='px-4 py-3 border'>Product Image</th>
+
+                                    <th className='px-4 py-3 border'>Reason</th>
+
+                                    <th className='px-4 py-3 border'>Recommended By</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                {
+                                    recommendations.map((re,index)=>(
+                                        <tr key={index} className='hover:bg-gray-50'>
+                                            <td className='px-4 py-3 border'>{re.productName}</td>
+
+                                            <td className='px-4 py-3 border'>
+                                                <img src={re.productImage} alt={re.productName} className='w-16 h-16 rounded-md object-cover'/>
+                                            </td>
+
+                                            <td className='px-4 py-3 border'>{re.reason}</td>
+
+                                            <td className='px-4 py-3 border'>{re.userEmail}</td>
+
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                )
+            }
+
+            
+         
         </div>
     );
 };
