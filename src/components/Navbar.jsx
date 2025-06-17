@@ -83,6 +83,7 @@ const handleLogOut=()=>{
 
   {/* UserIcon & Logout */}
   <div className="navbar-end">
+    
  
       {
         user ? (

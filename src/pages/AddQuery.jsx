@@ -30,10 +30,13 @@ const AddQuery = () => {
 
 
   try{
-    const res = await fetch('http://localhost:3000/add-query',{
+    const accessToken = await user.getIdToken();
+
+    const res = await fetch('https://propick-code-server.vercel.app/add-query',{
     method: "POST",
     headers:{
       'Content-Type':"application/json",
+       authorization: `Bearer ${accessToken}`
     },
     body:JSON.stringify(queryPayload),
   });

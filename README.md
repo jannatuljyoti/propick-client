@@ -1,6 +1,6 @@
 # Propick
 
-#Live Site
+#Live Site :https://propick-code.web.app/my-recommendations
 
 #Project Overview
 Propick is a full-stack Product Recommendation platform where users can raise concerns about specific products and request better alternatives. Other users can recommend products, engage through comments, and explore trending alternatives in the community.

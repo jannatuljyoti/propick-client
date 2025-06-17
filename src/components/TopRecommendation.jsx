@@ -11,7 +11,7 @@ const TopRecommendation = () => {
 
         Aos.init({duration:2000,once:true})
 
-        axios.get('http://localhost:3000/top-recommended-queries')
+        axios.get('https://propick-code-server.vercel.app/top-recommended-queries')
         .then(res=>setQueries(res.data))
         .catch(err=>console.error(err));
     },[]);

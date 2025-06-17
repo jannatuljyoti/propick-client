@@ -13,7 +13,7 @@ const Queries = () => {
 
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/all-queries')
+        axios.get('https://propick-code-server.vercel.app/all-queries')
         .then(res=>{
             setQueries(res.data);
             setFilterQueries(res.data);

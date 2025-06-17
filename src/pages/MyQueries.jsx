@@ -17,27 +17,55 @@ const MyQueries = () => {
 
     useDynamicTitle("My Queries");
 
+    // useEffect(()=>{
+    //     if(!user)return;
+    //     axios.get(`https://propick-code-server.vercel.app/my-queries?email=${user.email}`)
+    //     .then(res=>{
+    //         setQuery(res.data);
+    //         setFetching(false);
+    //     })
+    //     .catch(err=>{
+    //         console.error(err);
+    //         toast.error('Failed to load queries');
+    //         setFetching(false);
+
+    //     });
+
+    // },[user, location.state?.refreshed]);
+
+
     useEffect(()=>{
-        if(!user)return;
-        axios.get(`http://localhost:3000/my-queries?email=${user.email}`)
-        .then(res=>{
-            setQuery(res.data);
-            setFetching(false);
-        })
-        .catch(err=>{
-            console.error(err);
-            toast.error('Failed to load queries');
-            setFetching(false);
+        const fetchQueries = async()=>{
+            if(user){
+                try {
+                    const accessToken = await user.getIdToken();
 
-        });
+                    const res = await axios.get(`https://propick-code-server.vercel.app/my-queries?email=${user.email}`,{
+                        headers: {
+                            authorization: `Bearer ${accessToken}`
+                        }
+                    });
 
+                    setQuery(res.data);
+                    setFetching(false);
+                }catch(error){
+                    console.error(error);
+                    toast.error("Failed to load:",error);
+                   
+                }finally{
+                     setFetching(false);
+                }
+            }
+        };
+        fetchQueries();
     },[user, location.state?.refreshed]);
+
 
     const handleDelete=id=>{
         const confirmDelete=window.confirm('Are you sure you want to delete this query?');
         if(!confirmDelete) return;
 
-        axios.delete(`http://localhost:3000/query/${id}`)
+        axios.delete(`https://propick-code-server.vercel.app/query/${id}`)
         .then(res=>{
             if(res.data.success){
                 setQuery(prev=> prev.filter(q=>q._id !==id));
@@ -87,7 +115,7 @@ const MyQueries = () => {
 
                 {
                     query.map(queries=>(
-                        <div key={queries._id} className='bg-white p-5 shadow rounded'>
+                        <div key={queries._id} className='bg-white p-5 shadow rounded flex flex-col justify-between'>
                         
                         <img src={queries.productImage} alt={queries.productName} className='w-full h-40 object-cover rounded mb-3'/>
 
@@ -98,13 +126,13 @@ const MyQueries = () => {
                         <p>Added on: {new Date(queries.timestamp).toLocaleString()}</p>
 
 
-                        <div className='flex mt-5 justify-between gap-3'>
+                        <div className='mt-5  flex gap-3'>
 
-                            <button onClick={()=>navigate(`/query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>View</button>
+                            <button onClick={()=>navigate(`/query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600 w-full '>View</button>
 
-                            <button onClick={()=>navigate(`/update-query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600'>Update</button>
+                            <button onClick={()=>navigate(`/update-query/${queries._id}`)} className='px-4 py-2 bg-[#4bbafa] text-white rounded hover:bg-yellow-600 w-full'>Update</button>
 
-                            <button onClick={()=>handleDelete(queries._id)} className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600'>Delete</button>
+                            <button onClick={()=>handleDelete(queries._id)} className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 w-full'>Delete</button>
                         </div>
 
                         </div>

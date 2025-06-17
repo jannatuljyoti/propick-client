@@ -16,7 +16,7 @@ const RecommendationsForMe = () => {
     // useEffect(()=>{
         
     //     if(user?.email){
-    //         axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`,{
+    //         axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`,{
     //             headers: {
     //                 authorization: `Bearer ${accessToken}`
     //             }
@@ -39,7 +39,7 @@ const RecommendationsForMe = () => {
                 try {
                     const accessToken = await user.getIdToken();
 
-                    const res = await axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`,{
+                    const res = await axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`,{
                         headers: {
                             authorization: `Bearer ${accessToken}`
                         }

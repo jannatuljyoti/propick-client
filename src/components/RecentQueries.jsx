@@ -7,7 +7,7 @@ const RecentQueries = () => {
     useEffect(()=>{
         const fetchQueries = async()=>{
             try{
-                const res =await fetch('http://localhost:3000/recent-queries');
+                const res =await fetch('https://propick-code-server.vercel.app/recent-queries');
                 const data =await res.json();
                 setRecent(data);
             }catch(error){

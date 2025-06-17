@@ -11,19 +11,44 @@ const MyRecommendations = () => {
     const [user]=useAuthState(auth);
     const [recommendations,setRecommendations]=useState([]);
 
+    // useEffect(()=>{
+    //     if(user?.email){
+    //         axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`)
+    //         .then(res=>setRecommendations(res.data))
+    //         .catch(err=>console.error(err));
+    //     }
+    // },[user]);
+
+
+
+
     useEffect(()=>{
-        if(user?.email){
-            axios.get(`http://localhost:3000/my-recommendations/${user.email}`)
-            .then(res=>setRecommendations(res.data))
-            .catch(err=>console.error(err));
-        }
+        const fetchMyRecommendations = async()=>{
+            if(user){
+                try {
+                    const accessToken = await user.getIdToken();
+
+                    const res = await axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`,{
+                        headers: {
+                            authorization: `Bearer ${accessToken}`
+                        }
+                    });
+
+                    setRecommendations(res.data);
+                }catch(error){
+                    console.error("Error fetching recommendations:",error);
+                }
+            }
+        };
+        fetchMyRecommendations();
     },[user]);
+
 
     const handleDelete=(id)=>{
         const confirmDelete=window.confirm('Are you sure you want to delete this?');
         if(!confirmDelete) return;
 
-        axios.delete(`http://localhost:3000/recommendations/${id}`)
+        axios.delete(`https://propick-code-server.vercel.app/recommendations/${id}`)
         .then(res=>{
             toast.success('Deleted successfully');
             setRecommendations(prev=>prev.filter(r=>r._id !==id));
