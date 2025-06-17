@@ -41,7 +41,11 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.success("Google Signed in successful!")
-        
+      
+      
+      setTimeout(()=>{
+        navigate(location.state?.from?.pathname || "/");
+      },1000);
     })
     .catch((error)=>{
       toast.error(error.message);

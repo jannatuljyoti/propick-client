@@ -47,7 +47,7 @@ const Register = () => {
         toast.success("Registered successfully");
     setTimeout(()=>{
       navigate(location.state || "/");
-    },2000)
+    },1000)
         })
     })
     .catch((error)=>{

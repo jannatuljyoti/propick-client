@@ -78,11 +78,13 @@ const MyRecommendations = () => {
                                 </tr>
                             )
                         }
-                          <ToastContainer></ToastContainer>
+                         
                     </tbody>
                   
 
                 </table>
+
+                 <ToastContainer></ToastContainer>
 
             </div>
            

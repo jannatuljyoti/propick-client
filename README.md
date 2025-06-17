@@ -1,12 +1,60 @@
-# React + Vite
+# Propick
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Live Site
 
-Currently, two official plugins are available:
+#Project Overview
+Propick is a full-stack Product Recommendation platform where users can raise concerns about specific products and request better alternatives. Other users can recommend products, engage through comments, and explore trending alternatives in the community.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This system evaluates your skills in authentication, REST APIs, MongoDB, conditional rendering, JWT protection, dynamic UI layout, and responsive design — ensuring a smooth experience across all devices.
 
-## Expanding the ESLint configuration
+# Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ Authentication
+1. Email/Password login
+2. Google Sign-In
+3. Conditional rendering based on auth state
+4. Protected Routes using JWT
+
+ Query Management
+1. Add/Edit/Delete your own product-related queries
+2. View all queries with filtering and search by product name
+3. Display query metadata: author, timestamp, brand, image, reason
+
+ Recommendation System
+1. Add recommendations for any query
+2. See others' recommendations
+3. Delete own recommendations
+4. View all recommendations received for your own queries
+
+ Dashboard Pages
+1. **My Queries** (Private)
+2. **My Recommendations** (Private)
+3. **Recommendations For Me** (Private)
+4. Grid layout toggling (1/2/3 columns)
+5. Search functionality on queries
+
+ UI/UX
+1. Responsive Design (Mobile, Tablet, Desktop)
+2. Dynamic Layout Switching
+3.Eye-pleasing color palette & alignment
+4. 404 Error Page with a return button
+5. Beautiful Header, Footer with logo and social links
+
+
+# Technologies Used
+### Frontend:
+1.React.js
+2.React Router
+3.Tailwind CSS
+4.Firebase Authentication
+5.Axios
+6.React Firebase Hooks
+7.Framer Motion (optional for animations)
+
+### Backend:
+1.Express.js
+2.MongoDB
+3.dotenv
+4.CORS
+5.JSON Web Token (JWT)
+

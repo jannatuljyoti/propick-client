@@ -13,19 +13,47 @@ const RecommendationsForMe = () => {
     const [loading, setLoading]=useState(true);
 
 
-    useEffect(()=>{
-        if(user?.email){
-            axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`)
-            .then(res=>{
-                setRecommendations(res.data);
-                setLoading(false);
-            })
-            .catch(err=>{
-                console.error(err);
-                setLoading(false);
+    // useEffect(()=>{
+        
+    //     if(user?.email){
+    //         axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`,{
+    //             headers: {
+    //                 authorization: `Bearer ${accessToken}`
+    //             }
+    //         })
+    //         .then(res=>{
+    //             setRecommendations(res.data);
+    //             setLoading(false);
+    //         })
+    //         .catch(err=>{
+    //             console.error(err);
+    //             setLoading(false);
 
-            });
-        }
+    //         });
+    //     }
+    // },[user]);
+
+    useEffect(()=>{
+        const fetchRecommendations = async()=>{
+            if(user){
+                try {
+                    const accessToken = await user.getIdToken();
+
+                    const res = await axios.get(`http://localhost:3000/recommendations-forMe?email=${user.email}`,{
+                        headers: {
+                            authorization: `Bearer ${accessToken}`
+                        }
+                    });
+
+                    setRecommendations(res.data);
+                }catch(error){
+                    console.error("Error fetching recommendations:",error);
+                }finally{
+                    setLoading(false);
+                }
+            }
+        };
+        fetchRecommendations();
     },[user]);
 
     if(loading) return <Loading></Loading>
