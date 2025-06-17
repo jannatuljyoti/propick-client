@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Loading from './Loading';
 import { Link } from 'react-router';
+import useDynamicTitle from '../hooks/dynamicTitle';
 
 const Queries = () => {
+    useDynamicTitle("Queries")
 
     const[queries,setQueries]=useState([]);
     const [filterQueries,setFilterQueries]=useState([]);

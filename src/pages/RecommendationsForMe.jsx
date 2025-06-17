@@ -13,26 +13,6 @@ const RecommendationsForMe = () => {
     const [loading, setLoading]=useState(true);
 
 
-    // useEffect(()=>{
-        
-    //     if(user?.email){
-    //         axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`,{
-    //             headers: {
-    //                 authorization: `Bearer ${accessToken}`
-    //             }
-    //         })
-    //         .then(res=>{
-    //             setRecommendations(res.data);
-    //             setLoading(false);
-    //         })
-    //         .catch(err=>{
-    //             console.error(err);
-    //             setLoading(false);
-
-    //         });
-    //     }
-    // },[user]);
-
     useEffect(()=>{
         const fetchRecommendations = async()=>{
             if(user){

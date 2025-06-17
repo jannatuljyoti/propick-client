@@ -17,23 +17,6 @@ const MyQueries = () => {
 
     useDynamicTitle("My Queries");
 
-    // useEffect(()=>{
-    //     if(!user)return;
-    //     axios.get(`https://propick-code-server.vercel.app/my-queries?email=${user.email}`)
-    //     .then(res=>{
-    //         setQuery(res.data);
-    //         setFetching(false);
-    //     })
-    //     .catch(err=>{
-    //         console.error(err);
-    //         toast.error('Failed to load queries');
-    //         setFetching(false);
-
-    //     });
-
-    // },[user, location.state?.refreshed]);
-
-
     useEffect(()=>{
         const fetchQueries = async()=>{
             if(user){
