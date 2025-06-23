@@ -25,7 +25,7 @@ const Queries = () => {
             console.error('Error loading:',err);
             setLoading(false);
         })
-    },[]);
+    },[]); 
 
     const handleSearch=(e)=>{
         const text = e.target.value.toLowerCase();

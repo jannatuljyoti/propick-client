@@ -56,9 +56,11 @@ const QueryDetails = () => {
       ...formData,
       queryId:id,
       queryTitle:query.queryTitle,
-      productName:query.productName,
-      userEmail:query.userEmail,
-      userName:query.userName,
+      productName:formData.productName,
+      productImage:formData.productImage,
+      reason:formData.reason,
+      userEmail:user.userEmail,
+      userName:user.userName,
       userImage:user.photoURL,
       recommenderEmail:user.email,
       recommenderName:user?.name,
@@ -106,7 +108,9 @@ const QueryDetails = () => {
 
             <p className='mb-3'><strong>Reason</strong> {query.reasonDetails}</p>
 
-            <p><strong>Posted by:</strong> {query.userName} ({query.userEmail})</p>
+            <p className='mb-3'><strong>Posted by:</strong> {query.userName} ({query.userEmail})</p>
+
+            <p><strong>Recommendation Count: </strong> {query.recommendationCount} </p>
 
           </div>
 
@@ -135,19 +139,21 @@ const QueryDetails = () => {
             <div className='grid gap-5 sm:grid-cols-2'>
               {
                 recommendations.map(re=>(
-                  <div key={re._id} className='bg-gray-50 border-1-4 border-blue-400  shadow rounded-lg p-5'>
+                  <div key={re._id} className='flex items-start gap-3 bg-white p-3 rounded-lg shadow border border-blue-200'>
+                    <img src={re.userImage} alt="user" className='w-12 h-12 rounded-full object-cover'/>
+                    <div className='flex-1'>
+                      <div className='flex items-center gap-2 mb-1'>
 
-                    <img src={re.productImage} alt={re.productName} className='w-full h-48 object-cover rounded mb-5'/>
+                        <h4 className='font-semibold text-gray-800'>{re.recommenderName}</h4>
 
-                    <h3 className='text-lg font-bold mb-3'>{re.productName}</h3>
+                        <span className='text-sm text-gray-500'>{new Date(re.timestamp).toLocaleString()}</span>
 
-                    <img src={re.userImage} alt='user' className='w-10 h-10 rounded-full' />
+                      </div>
 
-                    <p className='mb-3'>{re.reason}</p>
-                    <p className='text-sm text-gray-600'><strong>By: </strong>{re.recommenderName}</p>
-                    <p className='text-sm text-gray-600'><strong>Email: </strong>{re.recommenderEmail}</p>
+                      <p className='text-gray-700 mb-2 whitespace-pre-line'><span className='font-bold'>Reason:</span> {re.reason}</p>
+                      <p><span className='font-bold'>ProductName: </span>{re.productName}</p>
 
-                    <p className='text-sm text-gray-600'><strong>Date: </strong>{new Date(re.timestamp).toLocaleString()}</p>
+                    </div>
 
                   </div>
                 ))

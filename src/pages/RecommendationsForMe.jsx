@@ -17,13 +17,15 @@ const RecommendationsForMe = () => {
         const fetchRecommendations = async()=>{
             if(user){
                 try {
-                    const accessToken = await user.getIdToken();
+                    // const accessToken = await user.getIdToken();
 
-                    const res = await axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`,{
-                        headers: {
-                            authorization: `Bearer ${accessToken}`
-                        }
-                    });
+                    const res = await axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`
+                    //     ,{
+                    //     headers: {
+                    //         authorization: `Bearer ${accessToken}`
+                    //     }
+                    // }
+                );
 
                     setRecommendations(res.data);
                 }catch(error){

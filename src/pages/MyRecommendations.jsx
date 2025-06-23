@@ -11,37 +11,37 @@ const MyRecommendations = () => {
     const [user]=useAuthState(auth);
     const [recommendations,setRecommendations]=useState([]);
 
-    // useEffect(()=>{
-    //     if(user?.email){
-    //         axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`)
-    //         .then(res=>setRecommendations(res.data))
-    //         .catch(err=>console.error(err));
-    //     }
-    // },[user]);
-
-
-
-
     useEffect(()=>{
-        const fetchMyRecommendations = async()=>{
-            if(user){
-                try {
-                    const accessToken = await user.getIdToken();
-
-                    const res = await axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`,{
-                        headers: {
-                            authorization: `Bearer ${accessToken}`
-                        }
-                    });
-
-                    setRecommendations(res.data);
-                }catch(error){
-                    console.error("Error fetching recommendations:",error);
-                }
-            }
-        };
-        fetchMyRecommendations();
+        if(user?.email){
+            axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`)
+            .then(res=>setRecommendations(res.data))
+            .catch(err=>console.error(err));
+        }
     },[user]);
+
+
+
+
+    // useEffect(()=>{
+    //     const fetchMyRecommendations = async()=>{
+    //         if(user){
+    //             try {
+    //                 const accessToken = await user.getIdToken();
+
+    //                 const res = await axios.get(`https://propick-code-server.vercel.app/my-recommendations/${user.email}`,{
+    //                     headers: {
+    //                         authorization: `Bearer ${accessToken}`
+    //                     }
+    //                 });
+
+    //                 setRecommendations(res.data);
+    //             }catch(error){
+    //                 console.error("Error fetching recommendations:",error);
+    //             }
+    //         }
+    //     };
+    //     fetchMyRecommendations();
+    // },[user]);
 
 
     const handleDelete=(id)=>{
