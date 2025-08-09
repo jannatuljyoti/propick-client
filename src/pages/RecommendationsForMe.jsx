@@ -19,7 +19,7 @@ const RecommendationsForMe = () => {
                 try {
                     // const accessToken = await user.getIdToken();
 
-                    const res = await axios.get(`https://propick-code-server.vercel.app/recommendations-forMe?email=${user.email}`
+                    const res = await axios.get(`https://propick-server.vercel.app/recommendations-forMe?email=${user.email}`
                     //     ,{
                     //     headers: {
                     //         authorization: `Bearer ${accessToken}`

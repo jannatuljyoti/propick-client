@@ -32,10 +32,10 @@ const QueryDetails = () => {
   };
 
   useEffect(()=>{
-    axios.get(`https://propick-code-server.vercel.app/query/${id}`)
+    axios.get(`https://propick-server.vercel.app/query/${id}`)
     .then(res=> setQuery(res.data));
 
-    axios.get(`https://propick-code-server.vercel.app/recommendations?queryId=${id}`)
+    axios.get(`https://propick-server.vercel.app/recommendations?queryId=${id}`)
     .then(res=>setRecommendations(res.data))
   },[id]);
 
@@ -68,19 +68,19 @@ const QueryDetails = () => {
     };
 
     try{
-      await axios.post('https://propick-code-server.vercel.app/add-recommendation',recommendation);
+      await axios.post('https://propick-server.vercel.app/add-recommendation',recommendation);
 
       // setRecommendations(prev=>[...prev,recommendation]);
 
-    await axios.patch(`https://propick-code-server.vercel.app/query-recommendation-count/${id}`);
+    await axios.patch(`https://propick-server.vercel.app/query-recommendation-count/${id}`);
 
     // await new Promise(resolve=>setTimeout(resolve,500));
 
     
-    const updated= await axios.get(`https://propick-code-server.vercel.app/recommendations?queryId=${id}`);
+    const updated= await axios.get(`https://propick-server.vercel.app/recommendations?queryId=${id}`);
     setRecommendations(updated.data);
 
-    const updatedQuery=await axios.get(`https://propick-code-server.vercel.app/query/${id}`);
+    const updatedQuery=await axios.get(`https://propick-server.vercel.app/query/${id}`);
     setQuery(updatedQuery.data);
 
       

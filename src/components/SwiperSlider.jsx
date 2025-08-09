@@ -47,7 +47,7 @@ const SwiperSlider = () => {
                     <div className='relative w-full h-[80vh]'>
                         <img src={slide.image} alt={slide.title} className='absolute top-0 left-0 w-full h-full object-cover '/>
 
-                        <div className='relative z-10 h-full flex flex-col  rounded-2xl items-center justify-center text-white px-4 sm:px-6 md:px-10 bg-black/50'>
+                        <div className='relative z-10 h-full flex flex-col   items-center justify-center text-white px-4 sm:px-6 md:px-10 bg-black/50'>
 
                             <h2 className='text-4xl text-white md:text-5xl font-bold mb-4'>{slide.title}</h2>
 

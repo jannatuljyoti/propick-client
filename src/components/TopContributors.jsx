@@ -7,7 +7,7 @@ const TopContributors = () => {
     const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
-        axios.get('https://propick-code-server.vercel.app/top-contributors')
+        axios.get('https://propick-server.vercel.app/top-contributors')
         .then(res=>{
             setContributor(res.data);
             setLoading(false);

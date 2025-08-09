@@ -23,7 +23,7 @@ const MyQueries = () => {
                 try {
                     const accessToken = await user.getIdToken();
 
-                    const res = await axios.get(`https://propick-code-server.vercel.app/my-queries?email=${user.email}`,{
+                    const res = await axios.get(`https://propick-server.vercel.app/my-queries?email=${user.email}`,{
                         headers: {
                             authorization: `Bearer ${accessToken}`
                         }
@@ -48,7 +48,7 @@ const MyQueries = () => {
         const confirmDelete=window.confirm('Are you sure you want to delete this query?');
         if(!confirmDelete) return;
 
-        axios.delete(`https://propick-code-server.vercel.app/query/${id}`)
+        axios.delete(`https://propick-server.vercel.app/query/${id}`)
         .then(res=>{
             if(res.data.success){
                 setQuery(prev=> prev.filter(q=>q._id !==id));

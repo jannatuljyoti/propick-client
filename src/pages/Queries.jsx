@@ -15,7 +15,7 @@ const Queries = () => {
 
 
     useEffect(()=>{
-        axios.get('https://propick-code-server.vercel.app/all-queries')
+        axios.get('https://propick-server.vercel.app/all-queries')
         .then(res=>{
             setQueries(res.data);
             setFilterQueries(res.data);

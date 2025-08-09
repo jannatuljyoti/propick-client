@@ -16,6 +16,7 @@ import PageError from "../pages/PageError";
 import AddQuery from "../pages/AddQuery";
 import QueryDetails from "../pages/QueryDetails";
 import Update from "../pages/Update";
+import AboutUs from "../pages/AboutUs";
 
 const Router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
         {
             path:"queries",
            element:<Queries></Queries>
+        },
+        {
+            path:"about-us",
+           element:<AboutUs></AboutUs>
         },
         {
             path:"recommendations-forMe",

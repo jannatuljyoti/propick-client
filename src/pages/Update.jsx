@@ -11,7 +11,7 @@ const Update = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    axios.get(`https://propick-code-server.vercel.app/query/${id}`)
+    axios.get(`https://propick-server.vercel.app/query/${id}`)
       .then(res=>{
         setFormData(res.data);
         setLoading(false);
@@ -35,7 +35,7 @@ const Update = () => {
     const {_id, ...updatedData} = formData;
     console.log("Data being sent to update:", updatedData);
 
-    axios.put(`https://propick-code-server.vercel.app/query/${id}`, updatedData)
+    axios.put(`https://propick-server.vercel.app/query/${id}`, updatedData)
     .then(res=>{
       toast.success('Query updated Successfully');
 

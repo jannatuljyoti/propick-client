@@ -36,6 +36,9 @@ const handleLogOut=()=>{
     <li><NavLink to="/queries"
     className={({isActive})=>
     isActive?"text-[#4bbafa] font-semibold":""}>Queries</NavLink></li>
+    <li><NavLink to="/about-us"
+    className={({isActive})=>
+    isActive?"text-[#4bbafa] font-semibold":""}>About Us</NavLink></li>
       
       {user &&(
         <>
