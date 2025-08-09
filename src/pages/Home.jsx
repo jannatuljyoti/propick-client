@@ -3,6 +3,7 @@ import SwiperSlider from '../components/SwiperSlider';
 import RecentQueries from '../components/RecentQueries';
 import TopRecommendation from '../components/TopRecommendation';
 import TopContributors from '../components/TopContributors';
+import NewsletterSignup from '../components/NewsletterSignUp';
 
 const Home = () => {
     return (
@@ -18,6 +19,10 @@ const Home = () => {
             <section className='mt-10'><TopRecommendation></TopRecommendation></section>
 
             <section className='mt-10'><TopContributors></TopContributors></section>
+
+            <section className='mt-10'>
+                <NewsletterSignup></NewsletterSignup>
+            </section>
         </div>
     );
 };

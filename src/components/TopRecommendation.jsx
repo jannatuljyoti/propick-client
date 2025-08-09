@@ -19,7 +19,7 @@ const TopRecommendation = () => {
     return (
         <div className='py-10 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100'>
 
-        <h2 className='text-4xl font-extrabold text-center text-[#4bbafa] mb-10 tracking-wide'>Top Recommended products</h2>   
+        <h2 className='text-3xl font-extrabold text-center text-gray-700 mb-10 tracking-wide'>Top Recommended products</h2>   
 
         <div className='grid gap-8 md:grid-cols-3 px-4'>
 
