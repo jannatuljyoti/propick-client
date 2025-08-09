@@ -7,7 +7,7 @@ const AboutUs = () => {
             <div className='bg-gray-50 text-gray-800'>
 
                 {/* Hero */}
-                <section className='bg-green-600 text-white py-18 text-center'>
+                <section className='bg-green-600 mt-10 text-white py-18 text-center'>
                     <h1 className='text-4xl font-bold mb-4'>We Stand for Ethical Choices</h1>
 
                     <p className='max-w-2xl mx-auto text-lg'>Helping people discover cruelty-free, sustainable, and ethical alternatives to everyday products.</p>

@@ -36,11 +36,17 @@ const Queries = () => {
         setFilterQueries(matched);
     }
 
+
+     const handleSortByRecommendation = () =>{
+        const sorted = [...filterQueries].sort((a,b) => b.recommendationCount - a.recommendationCount);
+        setFilterQueries(sorted);
+     }
+
     if (loading) return <Loading></Loading>
 
     return (
         <div className='px-5 py-11 bg-gray-100 min-h-screen'>
-            <h1 className='text-3xl font-bold mb-5 text-center text-[#4bbafa]'>All Queries</h1>
+            <h1 className='text-3xl font-bold mt-10 mb-5 text-center text-[#4bbafa]'>All Queries</h1>
 
             {/* search input */}
             <div className='max-w-md mx-auto mb-5'>
@@ -66,6 +72,12 @@ const Queries = () => {
                 <button 
                 onClick={()=> setGridCol(3)}
                 className={`btn bg-base-100 shadow btn-sm ${gridCol == 3? 'bg-blue-500 text-white' :  ''}`}>3 Col</button>
+
+                 <button
+                  onClick={handleSortByRecommendation}
+                  className='btn btn-sm bg-base-100 shadow  hover:bg-blue-500 hover:text-white'>
+                  Sort by Recommendations
+                </button>
 
             </div>
          
@@ -96,7 +108,7 @@ const Queries = () => {
                         <p className='text-sm text-gray-600 mb-2'><strong>Recommendations:</strong>{query.recommendationCount}</p>  
                        </div>
 
-                        <Link to={`/query/${query._id}`}><button className='w-full bg-[#4bbafa] text-white py-3 rounded hover:bg-blue-700'>Recommend</button></Link>
+                        <Link to={`/query/${query._id}`}><button className='w-full bg-[#4bbafa] text-white py-2 rounded hover:bg-blue-700'>Recommend</button></Link>
 
 
 

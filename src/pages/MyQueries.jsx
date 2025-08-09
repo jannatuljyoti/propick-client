@@ -74,7 +74,7 @@ const MyQueries = () => {
         {/* <Link to="/add-query" className="btn btn-accent">Add New Query</Link> */}
 
         {/* Banner Section */}
-        <div className='bg-gray-100 shadow-md p-5 rounded-lg text-center mb-7'>
+        <div className='bg-gray-100 mt-10 shadow-md p-5 rounded-lg text-center mb-7'>
             <h2 className='text-3xl text-[#4bbafa]  mb-7 font-bold'>My Queries</h2>
 
             <img className='mb-7 w-full rounded-lg p-4' src={bannerImg} alt="banner" />

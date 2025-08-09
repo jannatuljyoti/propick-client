@@ -43,7 +43,7 @@ const RecommendationsForMe = () => {
     return (
         <div className='p-7 min-h-screen bg-blue-50'>
 
-            <h2 className='text-2xl text-center rounded p-5 bg-base-100 text-[#4bbafa] font-bold mb-5'>Recommendation for me</h2>
+            <h2 className='text-2xl mt-10 text-center rounded p-5 bg-base-100 text-[#4bbafa] font-bold mb-5'>Recommendation for me</h2>
 
             {
                 recommendations.length===0?(

@@ -19,31 +19,6 @@ const MyRecommendations = () => {
         }
     },[user]);
 
-
-
-
-    // useEffect(()=>{
-    //     const fetchMyRecommendations = async()=>{
-    //         if(user){
-    //             try {
-    //                 const accessToken = await user.getIdToken();
-
-    //                 const res = await axios.get(`https://propick-server.vercel.app/my-recommendations/${user.email}`,{
-    //                     headers: {
-    //                         authorization: `Bearer ${accessToken}`
-    //                     }
-    //                 });
-
-    //                 setRecommendations(res.data);
-    //             }catch(error){
-    //                 console.error("Error fetching recommendations:",error);
-    //             }
-    //         }
-    //     };
-    //     fetchMyRecommendations();
-    // },[user]);
-
-
     const handleDelete=(id)=>{
         const confirmDelete=window.confirm('Are you sure you want to delete this?');
         if(!confirmDelete) return;
@@ -62,7 +37,7 @@ const MyRecommendations = () => {
 
     return (
         <div className='p-7 bg-blue-50 min-h-screen'>
-            <h2 className='bg-base-100 p-3 rounded text-2xl text-center text-[#4bbafa] font-bold mb-5'>My Recommendations</h2>
+            <h2 className='bg-base-100 mt-10 p-3 rounded text-2xl text-center text-[#4bbafa] font-bold mb-5'>My Recommendations</h2>
             <div className='overflow-x-auto bg-base-100 shadow-md'>
                 <table className='table-fixed w-full  border border-collapse border-sky-400 '>
                     <thead className='bg-base-100 '>
