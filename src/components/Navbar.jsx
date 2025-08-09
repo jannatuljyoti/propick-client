@@ -54,7 +54,7 @@ const handleLogOut=()=>{
 
 
     return (
-        <div className="navbar bg-blue-50 shadow-sm">
+        <div className="navbar bg-blue-50 shadow-sm fixed top-0 left-0 w-full z-50">
   
   {/* logo & siteName */}
   <div className="navbar-start">
