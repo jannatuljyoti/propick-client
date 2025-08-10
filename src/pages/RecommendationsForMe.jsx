@@ -70,7 +70,7 @@ const RecommendationsForMe = () => {
                             <tbody>
                                 {
                                     recommendations.map((re,index)=>(
-                                        <tr key={index} className='hover:bg-gray-50'>
+                                        <tr key={index} className=''>
                                             <td className='px-4 py-3 border border-blue-300'>{re.productName}</td>
 
                                             <td className='px-4 py-3 border border-blue-300'>
