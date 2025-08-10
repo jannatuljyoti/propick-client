@@ -111,7 +111,7 @@ const Queries = () => {
                        <div className='flex-1'>
                          <img src={query.productImage} alt={query.productName} className='w-full h-52 object-cover rounded mb-5'/>  
 
-                        <h2 className='text-xl font-semibold mb-2'>{query.queryTitle}</h2>
+                        <h2 className='text-xl text-gray-700 font-semibold mb-2'>{query.queryTitle}</h2>
 
                         <p className='text-sm text-gray-600 mb-2'><strong>Brand: </strong>{query.productBrand}</p>  
 

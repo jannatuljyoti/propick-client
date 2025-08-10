@@ -21,7 +21,7 @@ const RecentQueries = () => {
 
     return (
         <div className='my-16 px-6'>
-            <h2 className='text-3xl dark:text-white text-gray-700 font-bold text-center mb-7'>Recent Queries</h2>
+            <h2 className='text-3xl  text-gray-500 font-bold text-center mb-7'>Recent Queries</h2>
 
             <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
 
@@ -36,7 +36,7 @@ const RecentQueries = () => {
                             <div className='mt-4 flex-grow flex flex-col justify-between'>
 
                                 <div>
-                                    <h3 className='text-xl font-semibold'>{query.queryTitle}</h3>
+                                    <h3 className='text-xl text-gray-700 font-semibold'>{query.queryTitle}</h3>
                                 {/* <p><span className='font-bold text-gray-600'>Product:</span> {query.productName} ({query.productBrand})</p> */}
 
                                  <p className='mt-2 text-gray-700 text-sm'>
@@ -61,7 +61,7 @@ const RecentQueries = () => {
                                    </div>
                                 </div>
 
-                                <p>Date: {new Date(query.timestamp).toLocaleString()}</p>
+                                <p className='text-gray-700'>Date: {new Date(query.timestamp).toLocaleString()}</p>
                             </div>
                         </div>
                     ))

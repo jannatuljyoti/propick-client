@@ -35,7 +35,7 @@ const TopRecommendation = () => {
 
                     <h3 className='text-2xl font-bold text-gray-800 mb-2'>{query.productName}</h3>  
 
-                    <p>Brand: <span className='font-medium text-black'>{query.productBrand}</span></p> 
+                    <p className='text-gray-700'>Brand: <span className='font-medium text-gray-700'>{query.productBrand}</span></p> 
 
                     <p className='text-purple-500 font-semibold text-lg'>⭐{query.recommendationCount} Recommendations</p>
 

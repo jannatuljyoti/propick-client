@@ -32,7 +32,7 @@ const TopContributors = () => {
                             <img src={user.userImage} alt={user.userName} className='w-16 h-16 rounded-full object-cover border-2 border-blue-400'/>
 
                             <div>
-                                <h3 className='text-xl font-bold'>{user.userName}</h3>
+                                <h3 className='text-xl text-gray-700 font-bold'>{user.userName}</h3>
                                 <p className='text-sm text-gray-500'>{user.queryCount}Queries Added</p>
                             </div>
 

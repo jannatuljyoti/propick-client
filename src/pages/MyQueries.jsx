@@ -102,11 +102,11 @@ const MyQueries = () => {
                         
                         <img src={queries.productImage} alt={queries.productName} className='w-full h-40 object-cover rounded mb-3'/>
 
-                        <h3 className='text-xl font-semibold mb-2'>{queries.queryTitle}</h3>
+                        <h3 className='text-xl text-gray-700 font-semibold mb-2'>{queries.queryTitle}</h3>
 
                         <p className='text-gray-600 text-sm mb-2'>Brand: {queries.productBrand}</p>
 
-                        <p>Added on: {new Date(queries.timestamp).toLocaleString()}</p>
+                        <p className='text-gray-700'>Added on: {new Date(queries.timestamp).toLocaleString()}</p>
 
 
                         <div className='mt-5  flex gap-3'>
