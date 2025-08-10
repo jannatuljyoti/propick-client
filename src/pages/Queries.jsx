@@ -12,6 +12,7 @@ const Queries = () => {
     const [loading,setLoading]=useState(true);
     const[search,setSearch]=useState('');
     const [gridCol,setGridCol]=useState(3);
+    const [sortOrder, setSortOrder] =useState('desc');
 
 
     useEffect(()=>{
@@ -37,8 +38,15 @@ const Queries = () => {
     }
 
 
-     const handleSortByRecommendation = () =>{
-        const sorted = [...filterQueries].sort((a,b) => b.recommendationCount - a.recommendationCount);
+     const handleSortByRecommendation = (order) =>{
+        const sorted = [...filterQueries].sort((a,b) => {
+            if(order === 'asc'){
+                return a.recommendationCount - b.recommendationCount;
+            }else{
+                return b.recommendationCount - a.recommendationCount;
+            }
+        });
+        setSortOrder(order);
         setFilterQueries(sorted);
      }
 
@@ -73,11 +81,15 @@ const Queries = () => {
                 onClick={()=> setGridCol(3)}
                 className={`btn bg-base-100 shadow btn-sm ${gridCol == 3? 'bg-blue-500 text-white' :  ''}`}>3 Col</button>
 
-                 <button
-                  onClick={handleSortByRecommendation}
-                  className='btn btn-sm bg-base-100 shadow  hover:bg-blue-500 hover:text-white'>
-                  Sort by Recommendations
-                </button>
+                
+                {/* sorting dropdown */}
+                <select 
+                className='select select-bordered select-sm'
+                value={sortOrder}
+                onChange={(e)=>handleSortByRecommendation(e.target.value)}>
+                    <option value="desc"> Sort: Highest Recommendations</option>
+                    <option value="asc"> Sort: Lowest Recommendations</option>
+                </select>
 
             </div>
          
