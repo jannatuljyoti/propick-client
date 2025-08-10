@@ -21,7 +21,7 @@ const RecentQueries = () => {
 
     return (
         <div className='my-16 px-6'>
-            <h2 className='text-3xl text-gray-700 font-bold text-center mb-7'>Recent Queries</h2>
+            <h2 className='text-3xl dark:text-white text-gray-700 font-bold text-center mb-7'>Recent Queries</h2>
 
             <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
 

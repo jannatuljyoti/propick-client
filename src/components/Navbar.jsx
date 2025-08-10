@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
@@ -8,6 +8,23 @@ import userIcon from "../assets/Icon.png"
 const Navbar = () => {
   const {user,logOut}=use(AuthContext);
   const [showLogout,setShowLogout]=useState(false);
+  const [theme,setTheme]=useState(localStorage.getItem("theme") || "light");
+
+  // system theme detect for default setting
+  useEffect(()=>{
+    if(!localStorage.getItem("theme")){
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+  },[]);
+
+  // data theme set in body if theme change
+  useEffect(()=>{
+    document.documentElement.setAttribute("data-theme",theme);
+    localStorage.setItem("theme", theme);
+  },[theme]);
+
+ 
 
 const handleLogOut=()=>{
   console.log("User trying to logout")
@@ -54,7 +71,7 @@ const handleLogOut=()=>{
 
 
     return (
-  <div className="navbar bg-blue-50 shadow-sm fixed top-0 left-0 w-full z-50">
+  <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
   
   
   {/* logo & siteName */}
@@ -85,9 +102,26 @@ const handleLogOut=()=>{
     </ul>
   </div>
 
-  {/* UserIcon & Logout */}
-  <div className="navbar-end">
+  {/* UserIcon, Theme Toggle & Logout  */}
+  <div className="navbar-end flex items-center gap-3">
     
+{/* theme toggle */}
+<label className='swap swap-rotate'>
+  <input type="checkbox"
+  checked={theme === "dark"} 
+  onChange={()=> setTheme(theme === "light" ? "dark" : "light")}/>
+
+   {/* sun icon */}
+          <svg className="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <path d="M5.64 17.657l-1.414-1.414 1.414 1.414zM12 5.5a6.5 6.5 0 110 13 6.5 6.5 0 010-13zm6.364 12.157l1.414-1.414-1.414 1.414zM12 3v-2m0 22v-2m9.657-9.657h2m-22 0h2M16.95 7.05l1.414-1.414-1.414 1.414zM7.05 16.95l-1.414 1.414 1.414-1.414z" />
+          </svg>
+          {/* moon icon */}
+          <svg className="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <path d="M21.752 15.002A9.718 9.718 0 0112.001 22c-5.385 0-9.752-4.367-9.752-9.752 0-4.081 2.436-7.599 5.935-9.066a7.5 7.5 0 1013.568 11.82z" />
+          </svg>
+</label>
  
       {
         user ? (
