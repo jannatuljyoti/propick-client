@@ -4,6 +4,8 @@ import RecentQueries from '../components/RecentQueries';
 import TopRecommendation from '../components/TopRecommendation';
 import TopContributors from '../components/TopContributors';
 import NewsletterSignup from '../components/NewsletterSignUp';
+import { HomeIcon } from 'lucide-react';
+import HomeAnalyticsSection from './HomeAnalyticsSection';
 
 
 const Home = () => {
@@ -18,6 +20,10 @@ const Home = () => {
             </section>
 
             <section className='mt-10'><TopRecommendation></TopRecommendation></section>
+
+            
+            <section className='mt-10'><HomeAnalyticsSection></HomeAnalyticsSection></section>
+
 
             <section className='mt-10'><TopContributors></TopContributors></section>
 
