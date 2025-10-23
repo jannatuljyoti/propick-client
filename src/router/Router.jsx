@@ -18,6 +18,8 @@ import QueryDetails from "../pages/QueryDetails";
 import Update from "../pages/Update";
 import AboutUs from "../pages/AboutUs";
 
+
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +61,7 @@ const Router = createBrowserRouter([
             path:"query/:id",
            element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>
         },
+        
     ],
   },
   {

@@ -82,8 +82,8 @@ const MyRecommendations = () => {
         recommendations
       </p>
       <div className="flex justify-center mb-5">
-        <span className="px-4 py-1 rounded-full bg-gray-300 text-gray-800 font-medium">
-          {badge || "Newbie"}
+        <span className="px-4 py-1 rounded-full bg-base-100 text-blue-500 font-medium">
+          Badge: {badge || "Newbie"}
         </span>
       </div>
 
