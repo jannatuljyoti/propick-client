@@ -1,6 +1,8 @@
 # Propick
 
 #Live Site :https://propick-code.web.app/
+#user credentials:
+email: fatiha@khatun.com , password: 123456qwQW
 
 #Project Overview
 Propick is a full-stack Product Recommendation platform where users can raise concerns about specific products and request better alternatives. Other users can recommend products, engage through comments, and explore trending alternatives in the community.
@@ -58,3 +60,53 @@ This system evaluates your skills in authentication, REST APIs, MongoDB, conditi
 4.CORS
 5.JSON Web Token (JWT)
 
+##R&D Documentation
+Feature 1: User Badge System
+
+##Feature Description:
+Added a dynamic user badge based on the number of recommendations:
+Newbie: fewer than 5,
+Contributor: 5–9,
+Expert: 10 or more
+
+##Reason for Choosing:
+Gamification is a proven UX strategy that increases engagement. By showing badges, users feel recognized and motivated to contribute more recommendations.
+
+
+##Improvement to Project:
+Encourages repeat contributions,
+Improves user retention and participation,
+Makes the platform more community-driven and interactive
+
+##Feature 2: Share Option in Queries Page
+
+##Feature Description:
+Integrated a share button that lets users share interesting queries with others (e.g., via link copying or social media).
+
+##Reason for Choosing:
+Sharing features increase reach and traffic. Users can promote helpful posts, bringing more organic visitors and potential contributors.
+
+
+##Improvement to Project:
+Boosts visibility and user engagement,
+Encourages content discovery,
+Promotes collaboration among users
+
+##Feature 3: Analytics Overview (Home Page)
+
+##Feature Description:
+Added an Analytics OverView showing:
+Total Queries,
+Total Recommendations,
+Recommendations by Logged-in User
+Visualized using Recharts.
+
+##Reason for Choosing Recharts:
+Lightweight and React-friendly chart library,
+Easy to customize and integrate,
+Provides visually clear insights
+
+##Improvement to Project:
+Helps users  understand community activity,
+Builds transparency and data-driven insight,
+Makes the UI more professional and informative.
