@@ -56,7 +56,7 @@ const Update = () => {
   return (
     <div className='max-w-xl mt-10 mx-auto p-5 bg-blue-50 shadow rounded'>
 
-      <h2 className='text-2xl text-center text-blue-400 font-bold mb-5'>Update Your Query</h2>
+      <h2 className='text-2xl mt-10 text-center text-blue-400 font-bold mb-5'>Update Your Query</h2>
 
       <form onSubmit={handleSubmit} className='space-y-4'>
 

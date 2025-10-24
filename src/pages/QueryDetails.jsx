@@ -99,33 +99,33 @@ const QueryDetails = () => {
 
     return (
         <div className='max-w-4xl mx-auto px-4 py-10'>
-          <h2 className='text-center mb-5 text-2xl font-bold text-[#4bbafa]'>Query Details</h2>
+          <h2 className='text-center mt-10 mb-5 text-2xl font-bold text-[#4bbafa]'>Query Details</h2>
           <div className='bg-purple-100 shadow-md rounded-lg p-5 mb-7'>
 
-            <h2 className='text-2xl font-bold mb-5'>{query.queryTitle}</h2>
-            <p className='mb-3'><strong>Brand: </strong>{query.productBrand}</p>
-            <p className='mb-3'><strong>Description: </strong>{query.queryDescription}</p>
+            <h2 className='text-2xl text-gray-700 font-bold mb-5'>{query.queryTitle}</h2>
+            <p className='mb-3 text-gray-700'><strong>Brand: </strong>{query.productBrand}</p>
+            <p className='mb-3 text-gray-700'><strong>Description: </strong>{query.queryDescription}</p>
 
-            <p className='mb-3'><strong>Reason</strong> {query.reasonDetails}</p>
+            <p className='mb-3 text-gray-700'><strong>Reason</strong> {query.reasonDetails}</p>
 
-            <p className='mb-3'><strong>Posted by:</strong> {query.userName} ({query.userEmail})</p>
+            <p className='mb-3 text-gray-700'><strong>Posted by:</strong> {query.userName} ({query.userEmail})</p>
 
-            <p><strong>Recommendation Count: </strong> {query.recommendationCount} </p>
+            <p className='text-gray-700'><strong>Recommendation Count: </strong> {query.recommendationCount} </p>
 
           </div>
 
           <div className='bg-blue-100 shadow-md rounded-lg p-5 mb-7'>
-            <h3 className='text-xl font-semibold mb-5'>Add a Recommendation</h3>
+            <h3 className='text-xl text-gray-700 font-semibold mb-5'>Add a Recommendation</h3>
 
             <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-5'>
 
-              <input className='border border-blue-500 p-3 rounded' placeholder='Title' value={formData.title} onChange={e=> setFormdata({...formData,title: e.target.value})}/>
+              <input className='border border-blue-500 text-gray-700 p-3 rounded' placeholder='Title' value={formData.title} onChange={e=> setFormdata({...formData,title: e.target.value})}/>
 
-              <input className='border border-blue-500 p-3 rounded' placeholder='Product Name' value={formData.productName} onChange={e=> setFormdata({...formData, productName: e.target.value})}/>
+              <input className='border border-blue-500 text-gray-700 p-3 rounded' placeholder='Product Name' value={formData.productName} onChange={e=> setFormdata({...formData, productName: e.target.value})}/>
 
-              <input className='border border-blue-500 p-3 rounded md:col-span-2' placeholder='Photo URL' value={formData.productImage} onChange={e=> setFormdata({...formData, productImage: e.target.value})}/>
+              <input className='border border-blue-500 text-gray-700 p-3 rounded md:col-span-2' placeholder='Photo URL' value={formData.productImage} onChange={e=> setFormdata({...formData, productImage: e.target.value})}/>
 
-              <textarea className='border border-blue-500 p-3 md:col-span-2' placeholder='Reason' value={formData.reason} onChange={e=> setFormdata({...formData, reason:e.target.value})}></textarea>
+              <textarea className='border border-blue-500 text-gray-700 p-3 md:col-span-2' placeholder='Reason' value={formData.reason} onChange={e=> setFormdata({...formData, reason:e.target.value})}></textarea>
 
               <button type='submit' className='bg-[#4bbafa] text-white py-3 px-5 rounded hover:bg-blue-700 md:col-span-2'>Add Recommendation</button>
             </form>
@@ -134,7 +134,7 @@ const QueryDetails = () => {
 
 
           <div className='bg-blue-100 p-4 rounded'>
-            <h3 className='text-xl font-semibold mb-5'>All Recommendations</h3>
+            <h3 className='text-xl text-gray-700 font-semibold mb-5'>All Recommendations</h3>
 
             <div className='grid gap-5 sm:grid-cols-2'>
               {
@@ -151,7 +151,7 @@ const QueryDetails = () => {
                       </div>
 
                       <p className='text-gray-700 mb-2 whitespace-pre-line'><span className='font-bold'>Reason:</span> {re.reason}</p>
-                      <p><span className='font-bold'>ProductName: </span>{re.productName}</p>
+                      <p className='text-gray-700'><span className='font-bold'>ProductName: </span>{re.productName}</p>
 
                     </div>
 

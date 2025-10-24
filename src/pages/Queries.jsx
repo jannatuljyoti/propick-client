@@ -68,7 +68,7 @@ const Queries = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="px-5 py-11 bg-gray-100 min-h-screen">
+    <div className="px-5 py-11 bg-base-100 min-h-screen">
       <h1 className="text-3xl font-bold mt-10 mb-5 text-center text-[#4bbafa]">
         All Queries
       </h1>

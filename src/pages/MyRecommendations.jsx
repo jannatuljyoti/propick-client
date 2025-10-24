@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "../firebase/firebase.init";
+import React, { useContext, useEffect, useState } from 'react';
 import useDynamicTitle from '../hooks/dynamicTitle';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../context/AuthProvider';
 
 const MyRecommendations = () => {
   useDynamicTitle("My Recommendations");
 
-  const [user] = useAuthState(auth);
+  const {user} = useContext(AuthContext);
   const [recommendations, setRecommendations] = useState([]);
   const [badge, setBadge] = useState('Newbie');
   const [count, setCount] = useState(0);
