@@ -63,14 +63,14 @@ const chartData = queries
           <p className="text-3xl font-bold text-[#4bbafa] mt-2">{totalRecommendations}</p>
         </div>
 
-        <div className="bg-white shadow rounded-xl p-6 text-center">
+        {/* <div className="bg-white shadow rounded-xl p-6 text-center">
           <h3 className="text-lg font-semibold text-gray-700">Recommendations of Login User</h3>
           {currentUser ? (
             <p className="text-3xl font-bold text-[#4bbafa] mt-2">{recommendationsForMe}</p>
           ) : (
             <p className="text-gray-500 mt-2">Login to see your data</p>
           )}
-        </div>
+        </div> */}
       </div>
 
  
